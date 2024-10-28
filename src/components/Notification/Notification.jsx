@@ -1,4 +1,4 @@
-import style from "./Notification.module.css";
+import css from "./Notification.module.css";
 
 
 function Notification({ message }) {

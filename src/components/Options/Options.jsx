@@ -1,8 +1,8 @@
-import style from "./Options.module.css";
+import css from "./Options.module.css";
 
 function Options({leaveFeedback, resetFeedback, totalFeedback }) {
 return (
-    <div>
+    <div className={css.btnContainer}>
         <button onClick={() => leaveFeedback('good')}>Good </button>
         <button onClick={() => leaveFeedback('neutral')}>Neutral </button>  
         <button onClick={() => leaveFeedback('bad')}>Bad </button>

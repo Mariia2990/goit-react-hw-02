@@ -1,0 +1,10 @@
+.btnContainer{
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    margin-left: 16px;
+}
+
+button{
+margin-right: 16px;
+}

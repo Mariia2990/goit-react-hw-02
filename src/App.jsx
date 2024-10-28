@@ -16,7 +16,7 @@ function App() {
       [feedbackType]: previousFeedback[feedbackType] + 1
     }));
   };
-  
+
   const resetFeedback = () => {
     setFeedback({
       good: 0,
@@ -26,6 +26,8 @@ function App() {
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
+
 
   return (
     <>
@@ -33,10 +35,11 @@ function App() {
       <p>Please leave your feedback about our service by selecting one of the options below.</p>
       <Options leaveFeedback={updateFeedback} resetFeedback={resetFeedback} totalFeedback={totalFeedback}/>
       {totalFeedback > 0 ? (
-        <Feedback feedback={feedback} totalFeedback={totalFeedback} />
+        <Feedback feedback={feedback} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} />
       ) : (<Notification message="No feedback given yet." />)}
     </>
   );
 }
+
 
 export default App;
