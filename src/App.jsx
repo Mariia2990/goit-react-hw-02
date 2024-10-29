@@ -1,7 +1,7 @@
 import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
 import Notification from "./components/Notification/Notification";
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 
 function App() {
   const [feedback, setFeedback] = useState({
@@ -28,6 +28,16 @@ function App() {
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
   const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
 
+  useEffect(() => {
+    const savedFeedback = localStorage.getItem("feedback");
+    if (savedFeedback) {
+      setFeedback(JSON.parse(savedFeedback));
+    }
+  }, []);
+
+ useEffect(() => {
+    localStorage.setItem("feedback", JSON.stringify(feedback));
+  }, [feedback]);
 
   return (
     <>

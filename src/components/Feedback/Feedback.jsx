@@ -1,13 +1,15 @@
 import css from "./Feedback.module.css";
 
-function Feedback({ feedback, totalFeedback, positiveFeedback }) {
+function Feedback({feedback, totalFeedback, positiveFeedback}) {
   return (
     <div>
-      <p>Good: {feedback.good}</p>
-      <p>Neutral: {feedback.neutral}</p>
-      <p>Bad: {feedback.bad}</p>
-      <p>Total feedback: {totalFeedback}</p>
-      <p>Positive feedback: {positiveFeedback}%</p>
+      <ul className={css.list}>
+      <li>Good: {feedback.good}</li>
+      <li>Neutral: {feedback.neutral}</li>
+      <li>Bad: {feedback.bad}</li>
+      <li>Total feedback: {totalFeedback}</li>
+      <li>Positive: {positiveFeedback}%</li> 
+      </ul>
     </div>
   );
 }
